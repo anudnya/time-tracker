@@ -1,21 +1,15 @@
 
 pipeline {
-  agent any
+    agent any
     tools { 
-        maven '/opt/maven' 
-           }
+        maven '/opt/maven'
+    }
     stages{
-      stage ('Build'){
-        steps{
-	  echo 'Maven Build'
-          sh 'mvn install'
-           }
-                     }
-
-      stage ('SonarQube'){
-          steps{
-              sh 'mvn sonar:sonar -Dsonar.host.url=http://127.0.0.1:9000/sonar'
-               }
-                         }
+        stage ('Build'){
+            steps{
+	        echo 'Maven Build'
+                sh 'mvn install'
             }
-            }
+	}
+    }
+}
